@@ -3,7 +3,6 @@
 #
 
 class Model:
-
     """A Pharmokinetic (PK) model
 
     Parameters
@@ -33,3 +32,4 @@ class Model:
 
     def __str__(self):
         return "model named " + self.name
+    
