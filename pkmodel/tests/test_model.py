@@ -10,6 +10,5 @@ class ModelTest(unittest.TestCase):
         """
         Tests Model creation.
         """
-        model = pk.Model()
-        self.assertEqual(model.value, 42)
-
+        model = pk.Model(name="testing")
+        self.assertEqual(model.name, "testing")
