@@ -132,4 +132,4 @@ dmypy.json
 .pyre/
 
 # temporary venv
-nerc-venv/*
+venv/*
