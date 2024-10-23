@@ -18,11 +18,11 @@ class Model:
     """
     def __init__(self,
                  name,
-                 Q_p1 = 1,
-                 V_c = 1,
-                 V_p1 = 1,
-                 CL = 1,
-                 X = 1):
+                 Q_p1=1,
+                 V_c=1,
+                 V_p1=1,
+                 CL=1,
+                 X=1):
         self.name = name
         self.Q_p1 = Q_p1
         self.V_c = V_c
@@ -32,4 +32,3 @@ class Model:
 
     def __str__(self):
         return "model named " + self.name
-    
