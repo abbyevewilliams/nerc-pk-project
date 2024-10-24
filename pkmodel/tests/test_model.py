@@ -27,7 +27,7 @@ class ModelTest(unittest.TestCase):
             self.assertEqual(fake_out.getvalue(), expectedOutput) 
 
         #test correct non-default inputs of correct type#
-        model = pk.Model(name = "TestModel",
+        model = pk.Model(name = "testModel",
                       V_c = 2,
                       CL = 2,
                       X = 2,
