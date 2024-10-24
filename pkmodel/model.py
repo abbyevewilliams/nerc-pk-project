@@ -16,7 +16,6 @@ def checkTypes(value, validTypes):
         raise TypeError(f"'{str(value)}' is not of type {' or '.join(types)}")
      
 class Model:
-
     """A Pharmokinetic (PK) model
 
     Parameters
@@ -76,3 +75,5 @@ class Model:
         #add variables for additional compartments
         self.Q_p.append(Q_p)
         self.V_p.append(V_p)
+        return "model named " + self.name
+

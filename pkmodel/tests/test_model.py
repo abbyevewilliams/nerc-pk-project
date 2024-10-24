@@ -69,6 +69,3 @@ class ModelTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             model.add_compartment(Q_p = "a", V_p = 2) #Q_p
             model.add_compartment(Q_p = 2, V_p = "a") #V_p
-
-
-
