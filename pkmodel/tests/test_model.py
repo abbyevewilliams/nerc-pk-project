@@ -1,4 +1,5 @@
 import unittest
+import unittest.mock as mock
 from io import StringIO 
 import pkmodel as pk
 
@@ -11,7 +12,7 @@ class ModelTest(unittest.TestCase):
         Tests Model creation.
         """
         #test default model creation#
-        model = Model(name = "TestModel")
+        model = pk.Model(name = "TestModel")
         self.assertEqual(model.name, "testModel") #name
         self.assertEqual(model.V_c, 1) #V_c
         self.assertEqual(model.CL, 1) #CL
@@ -21,12 +22,12 @@ class ModelTest(unittest.TestCase):
 
         #test print function#
         expectedOutput = "testModel: a model with 0 peripheral compartment(s)"
-        with patch('sys.stdout', new = StringIO()) as fake_out: 
+        with mock.patch('sys.stdout', new = StringIO()) as fake_out: 
             print(model)
             self.assertEqual(fake_out.getvalue(), expectedOutput) 
 
         #test correct non-default inputs of correct type#
-        model = Model(name = "TestModel",
+        model = pk.Model(name = "TestModel",
                       V_c = 2,
                       CL = 2,
                       X = 2,
@@ -41,17 +42,17 @@ class ModelTest(unittest.TestCase):
 
         #test incorrect input types#
         with self.assertRaises(TypeError):
-            model = Model(name = 1) #name
-            model = Model(name = "testModel", V_c = "wrong") #V_c
-            model = Model(name = "testModel", CL = "wrong") #CL
-            model = Model(name = "testModel", X = "wrong") #X
-            model = Model(name = "testModel", Q_p = "wrong") #Q_p
-            model = Model(name = "testModel", Q_p = ["a"]) #Q_p values
-            model = Model(name = "testModel", V_p = "wrong") #V_p
-            model = Model(name = "testModel", V_p = ["a"]) #V_p values
+            model = pk.Model(name = 1) #name
+            model = pk.Model(name = "testModel", V_c = "wrong") #V_c
+            model = pk.Model(name = "testModel", CL = "wrong") #CL
+            model = pk.Model(name = "testModel", X = "wrong") #X
+            model = pk.Model(name = "testModel", Q_p = "wrong") #Q_p
+            model = pk.Model(name = "testModel", Q_p = ["a"]) #Q_p values
+            model = pk.Model(name = "testModel", V_p = "wrong") #V_p
+            model = pk.Model(name = "testModel", V_p = ["a"]) #V_p values
         #Q_p and V_p not equal length
         expectedOutput = "Q_p and V_p must be of equal length"
-        with patch('sys.stdout', new = StringIO()) as fake_out: 
+        with mock.patch('sys.stdout', new = StringIO()) as fake_out: 
             print(model)
             self.assertEqual(fake_out.getvalue(), expectedOutput)
 
@@ -60,7 +61,7 @@ class ModelTest(unittest.TestCase):
     """
     def test_add_compartment(self):
         #initiate model#
-        model = Model(name = "TestModel")
+        model = pk.Model(name = "TestModel")
         #test correct addition of compartment#
         model.add_compartment(Q_p = 2, V_p = 2)
         self.assertEqual(model.Q_p, [2])
@@ -69,6 +70,3 @@ class ModelTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             model.add_compartment(Q_p = "a", V_p = 2) #Q_p
             model.add_compartment(Q_p = 2, V_p = "a") #V_p
-
-
-
