@@ -27,13 +27,13 @@ class ModelTest(unittest.TestCase):
             self.assertEqual(fake_out.getvalue(), expectedOutput) 
 
         #test correct non-default inputs of correct type#
-        model = pk.Model(name = "testModel",
+        model = pk.Model(name = "TestModel",
                       V_c = 2,
                       CL = 2,
                       X = 2,
                       Q_p = [1],
                       V_p = [1])
-        self.assertEqual(model.name, "testModel") #name
+        self.assertEqual(model.name, "TestModel") #name
         self.assertEqual(model.V_c, 2) #V_c
         self.assertEqual(model.CL, 2) #CL
         self.assertEqual(model.X, 2) #X
