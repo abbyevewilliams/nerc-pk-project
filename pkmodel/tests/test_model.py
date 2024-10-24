@@ -13,7 +13,7 @@ class ModelTest(unittest.TestCase):
         """
         #test default model creation#
         model = pk.Model(name = "TestModel")
-        self.assertEqual(model.name, "testModel") #name
+        self.assertEqual(model.name, "TestModel") #name
         self.assertEqual(model.V_c, 1) #V_c
         self.assertEqual(model.CL, 1) #CL
         self.assertEqual(model.X, 1) #X
