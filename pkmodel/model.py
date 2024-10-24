@@ -76,31 +76,3 @@ class Model:
         #add variables for additional compartments
         self.Q_p.append(Q_p)
         self.V_p.append(V_p)
-
-
-
-
-##tests##
-#initiate model#
-try:
-    testModel = Model(name = "TestModel", Q_p = [], V_p = [])
-except TypeError as e:
-    print(e)
-
-#test print command#
-print(testModel)
-
-#add module wrong#
-try:
-    testModel.add_compartment(Q_p = 1, V_p = 1)
-except TypeError as e:
-    print(e)
-
-#test print again#
-print(testModel)
-
-##more tests##
-
-
-
-
