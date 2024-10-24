@@ -17,7 +17,8 @@ class ModelTest(unittest.TestCase):
         self.assertEqual(model.V_c, 1) #V_c
         self.assertEqual(model.CL, 1) #CL
         self.assertEqual(model.X, 1) #X
-        self.assertEqual(model.Q_p, []) #V_c
+        print(model.Q_p)
+        self.assertEqual(model.Q_p, []) #Q_p
         self.assertEqual(model.V_p, []) #V_p
 
         #test print function#
