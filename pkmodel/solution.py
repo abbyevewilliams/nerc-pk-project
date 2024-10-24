@@ -1,17 +1,15 @@
-#
-# Solution class
-#
+#Script to run the model and then calculate and plot the output
 
-class Solution:
-    """A Pharmokinetic (PK) model solution
+from pkmodel.model import Model
+from pkmodel.protocol import Protocol
+from pkmodel.plot_function import plot_data
 
-    Parameters
-    ----------
+m= Model("parameters")
 
-    value: numeric, optional
-        an example paramter
+p= Protocol(m, "intravenous")
 
-    """
-    def __init__(self, value=44):
-        self.value = value
+p.calculate("intravenous")
+
+fig =plot_data(protocol.t, protocol.qp, protocol.qc)
+plt.show()
 
